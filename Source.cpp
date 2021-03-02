@@ -1,3 +1,5 @@
+/*sreehari is topper
+*/
 #include<iostream>
 #include<stdlib.h>
 #include<limits>
@@ -32,6 +34,8 @@ void area();
 void mat_product();
 void mat_transpose();
 void mat_add();
+void compoundInterest();
+void simpleInterest();
     calculation operator+(calculation &ob)
     {
         calculation temp;
@@ -431,6 +435,42 @@ void calculation :: mat_add()
         cout << "\n";
     }
 }
+void calculation ::compoundInterest()
+{
+    float p,r,t,ci;
+
+    cout<<"Enter Principle (Amount) :: ";
+    cin>>p;
+    cout<<"\nEnter Rate of Interest per annum :: ";
+    cin>>r;
+    cout<<"\nEnter Time Period in years :: ";
+    cin>>t;
+
+    ci = p*pow((1+r/100),t);
+
+    cout<<"\nThe Calculated Compound Interest is = "<<ci<<"\n";
+
+}
+void calculation :: simpleInterest()
+{
+    float p,r,t,si,a;
+
+    cout<<"Enter Principle (Amount) :: ";
+    cin>>p;
+    cout<<"\nEnter Rate of Interest per annum :: ";
+    cin>>r;
+    cout<<"\nEnter Time Period in years :: ";
+    cin>>t;
+
+    si=p*r*t/100;
+
+    a=p+si;
+
+    cout<<"\nThe Calculated Simple Interest is = "<<si<<"\n";
+
+    cout<<"\nThe Total Amount after including Interest value = "<<a<<"\n";
+
+}
 
 
 int main()
@@ -441,7 +481,7 @@ int main()
 	char control='y';
 	//provides user the choice between switching to normal calculator or the scientific version//
 	while (control == 'y' || control == 'Y') {
-		cout<< "\t\t..MENU..\n\t1.<STANDARD CALCULATOR>\n\t2.<SCIENTIFIC CALCULATOR>" << endl;
+		cout<< "\t\t..MENU..\n\t1.<STANDARD CALCULATOR>\n\t2.<ALL FUNCTIONS>" << endl;
 		if (!(cin>> loop_ctrl))
 				{
 					cin.clear();
@@ -484,7 +524,7 @@ int main()
 					cout<< "\n you have entered a wrong choice\n"; break;
 
 				}
-				cout<< "\n check complete";
+				cout<< "\n check complete\n";
 				break;
 
 
@@ -547,6 +587,10 @@ int main()
 
 				cout<< "(27) Matrix addition\n";
 
+				cout<< "(28) Compound Interest\n";
+
+				cout<< "(29) Simple Interest\n";
+
 				//avoid infinite loop when a character is entered and corrupts the int cin//
 				if (!(cin>> function_ctrl))
 				{
@@ -554,7 +598,7 @@ int main()
 					cin.ignore(numeric_limits<streamsize>::max(), '\n');
 					cout<< "you have entered a wrong choice";
 				}
-				cout<< "\n check complete";
+				cout<< "\n check complete\n";
 				break;
 
 			}
@@ -750,6 +794,16 @@ int main()
 			c.mat_add();
 			cout<< "\n-----exiting------\n";break;
 		}
+			case 28:
+		{
+			c.compoundInterest();
+			cout<< "\n-----exiting------\n";break;
+		}
+			case 29:
+		{
+			c.simpleInterest();
+			cout<< "\n-----exiting------\n";break;
+		}
 
 		default :
 		{
@@ -761,3 +815,5 @@ int main()
 		cin>> control;
 	}
 }
+
+
