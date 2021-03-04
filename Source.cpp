@@ -1,5 +1,3 @@
-/*sreehari is topper
-*/
 #include<iostream>
 #include<stdlib.h>
 #include<limits>
@@ -11,9 +9,11 @@ class calculation
 private:
 float x;
 public:
-void remainder();
-void square();
-void cube();
+    calculation()
+    {
+
+    }
+
 void cosQ();
 void sinQ();
 void tanQ();
@@ -80,38 +80,40 @@ ostream & operator<<(ostream &out, calculation &b)
 
     return out;
 }
-void calculation :: remainder()
-
+class B
 {
-	int a, b, remainder;
-	cout<< "\n Enter the first number\n";
-	cin>> a;
-	cout<< "\n Enter the second number\n";
-	cin>> b;
-	remainder = a * b;
-	cout<< "remainder is" << remainder << endl;
-}
+private:
+    int y;
+public:
+ B()
+ {
 
-void calculation :: square()
-
+ }
+   B operator%(B &ob)
+    {
+        B temp;
+        temp.y=y%ob.y;
+        return temp;
+    }
+    friend istream & operator>>(istream &, B &);
+    friend ostream & operator<<(ostream &,  B &);
+};
+istream & operator>>(istream &in, B &a)
 {
-	int a, square;
-	cout<< "\n Enter the number\n";
-	cin>> a;
-	square = a * a;
-	cout<< "square is" << square<< endl;
+
+    cout<<"\n Enter the DATA : ";
+    in>>a.y;
+
+    return in;
 }
-
-void calculation :: cube()
-
+ostream & operator<<(ostream &out, B &b)
 {
-	int a, cube;
-	cout<< "\n Enter the number\n";
-	cin>> a;
-	cube = a * a * a;
-	cout<< "cube is" << cube<< endl;
-}
+    int z;
+    cout<<endl<<"\t\t";
+    out<<z;
 
+    return out;
+}
 void calculation :: cosQ()
 
 {
@@ -119,7 +121,7 @@ void calculation :: cosQ()
 	cout<< "\n Enter the angle\n";
 	cin>> a;
 	result = cos(a * PI / 180);
-	cout<< "the cosine of " << a << " is " << result << endl;
+	cout<< "The cosine of " << a << " is " << result << endl;
 }
 
 void calculation :: sinQ()
@@ -139,7 +141,7 @@ void calculation :: tanQ()
 	cout<< "\n Enter the angle\n";
 	cin>> a;
 	result = tan(a * PI / 180);
-	cout<< "the tan of the " << a << " is " << result << endl;
+	cout<< "The tan of the " << a << " is " << result << endl;
 }
 
 void calculation :: coshQ()
@@ -149,7 +151,7 @@ void calculation :: coshQ()
 	cout<< "\n Enter the angle\n";
 	cin>> a;
 	result = cosh(a);
-	cout<< "the hyperbolic cosine of " << a << " is " << result << endl;
+	cout<< "The hyperbolic cosine of " << a << " is " << result << endl;
 }
 
 void calculation :: sinhQ()
@@ -159,7 +161,7 @@ void calculation :: sinhQ()
 	cout<< "\n Enter the angle\n";
 	cin>> a;
 	result = sinh(a);
-	cout<< "the hyperbolic sine of " << a << " is " << result << endl;
+	cout<< "The hyperbolic sine of " << a << " is " << result << endl;
 }
 
 void calculation :: tanhQ()
@@ -254,22 +256,22 @@ void calculation :: powQ()
 	cout<< "\n Enter the power\n";
 	cin>> b;
 	power = pow(a, b);
-	cout<< "\n" << a << " raise to power " << b << " is " << power;
+	cout<< "\n" << a << " Raise to power " << b << " is " << power;
 
 }
 void calculation :: fToC()
  {
 	 double fahrenheit=0,celsius=0;
-	cout<<" Enter the temperature in fahrenheit";
+	cout<<" Enter the temperature in fahrenheit : ";
 	cin>>fahrenheit;
      celsius = (fahrenheit-32.0)* 5.0/9.0;
-     cout<<"the temperature in celsius is "<<celsius;
+     cout<<"The temperature in celsius is "<<celsius;
  }
 void calculation :: volume ()
 {
 	double x1,x2,x3;
 	int ch;
-	cout<<"\n\t\t1>cube\n\t\t2>cuboid\n\t\t3>sphere\n\t\t4>cylinder";
+	cout<<"\n\t 1> Cube\n\t 2> Cuboid\n\t 3> Sphere\n\t 4> Cylinder";
 	cin>>ch;
 	switch (ch)
 	{
@@ -293,13 +295,13 @@ void calculation :: volume ()
 		}
 		case 4:
 		{
-			cout<<"\nEnter the radius and height";
+			cout<<"\nEnter the radius and height : ";
 			cin>>x1>>x2;
 			cout<<"\n The volume is "<<x1*x2*x1*PI;break;
 		}
 		default:
 		{
-			cout<<"wrong choice entered";break;
+			cout<<"Wrong choice entered";break;
 		}
 	}
 }
@@ -307,7 +309,8 @@ void calculation :: area ()
 {
 	double x1,x2;
 	int ch;
-	cout<<"\n\t\t1>square\n\t\t2>rectangle\n\t\t3>circle\n\t\t4>triangle";
+	cout<<"\n\t 1> Square \n\t 2> Rectangle\n\t 3> Circle\n\t 4> Triangle"<<endl;
+	cout<<"Option : ";
 	cin>>ch;
 	switch (ch)
 	{
@@ -591,6 +594,11 @@ int main()
 
 				cout<< "(29) Simple Interest\n";
 
+<<<<<<< HEAD
+=======
+				cout<<"\n\tOption : ";
+
+>>>>>>> 676657bf8ed623f4dbde06fbb03fe155fec73377
 				//avoid infinite loop when a character is entered and corrupts the int cin//
 				if (!(cin>> function_ctrl))
 				{
@@ -632,7 +640,7 @@ int main()
 
         ans=t*w;
         cout<<ans;
-         cout<<" is multiplication of two number.";
+         cout<<" is multiplication of two numbers.";
         cout<<endl;
 			cout<< "-----exiting------\n";break;
 		}
@@ -644,7 +652,7 @@ int main()
 
         ans=t-w;
         cout<<ans;
-        cout<<" is Subtraction of two number.";
+        cout<<" is Subtraction of two numbers.";
         cout<<endl;
 			cout<< "-----exiting------\n";break;
 		}
@@ -652,12 +660,12 @@ int main()
 		case 4:
 
 		{
-			calculation t,w,ans;
+        calculation t,w,ans;
         cin>>t>>w;
 
         ans=t/w;
         cout<<ans;
-        cout<<" is division of two number.";
+        cout<<" is division of two numbers.";
         cout<<endl;
 			cout<< "-----exiting------\n";break;
 		}
@@ -665,18 +673,36 @@ int main()
 		case 5:
 
 		{
-			c.remainder();
+        B t,w,ans;
+        cin>>t>>w;
+
+        ans=t%w;
+        cout<<ans;
+        cout<<" is reminder of two numbers.";
+        cout<<endl;
 			cout<< "-----exiting------\n";break;
 		}
 
 		case 6:
 		{
-			c.square();
+        calculation t,w,ans;
+        cin>>t;
+
+        ans=t*t;
+        cout<<ans;
+        cout<<" is the square";
+        cout<<endl;
 			cout<< "-----exiting------\n";break;
 		}
 		case 7:
 		{
-			c.cube();
+        calculation t,w,ans;
+        cin>>t;
+
+        ans=t*t*t;
+        cout<<ans;
+        cout<<" is the cube";
+        cout<<endl;
 			cout<< "-----exiting------\n";break;
 		}
 
@@ -815,5 +841,8 @@ int main()
 		cin>> control;
 	}
 }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 676657bf8ed623f4dbde06fbb03fe155fec73377
