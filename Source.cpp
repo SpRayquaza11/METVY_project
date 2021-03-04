@@ -594,11 +594,8 @@ int main()
 
 				cout<< "(29) Simple Interest\n";
 
-<<<<<<< HEAD
-=======
 				cout<<"\n\tOption : ";
 
->>>>>>> 676657bf8ed623f4dbde06fbb03fe155fec73377
 				//avoid infinite loop when a character is entered and corrupts the int cin//
 				if (!(cin>> function_ctrl))
 				{
@@ -841,8 +838,5 @@ int main()
 		cin>> control;
 	}
 }
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 676657bf8ed623f4dbde06fbb03fe155fec73377
