@@ -6,79 +6,79 @@
 using namespace std;
 class Arithmetic{
 private:
-    float x;
+    float operand;
 public:
 
-Arithmetic operator+(Arithmetic &ob)
+Arithmetic operator+(Arithmetic &clasS_Obj)
     {
         Arithmetic temp;
-        temp.x=x+ob.x;
+        temp.operand=operand+clasS_Obj.operand;
         return temp;
     }
-    Arithmetic operator*(Arithmetic &ob)
+    Arithmetic operator*(Arithmetic &clasS_Obj)
     {
         Arithmetic temp;
-        temp.x=x*ob.x;
+        temp.operand=operand*clasS_Obj.operand;
         return temp;
     }
-    Arithmetic operator/(Arithmetic &ob)
+    Arithmetic operator/(Arithmetic &clasS_Obj)
     {
         Arithmetic temp;
-        temp.x=x/ob.x;
+        temp.operand=operand/clasS_Obj.operand;
         return temp;
     }
-    Arithmetic operator-(Arithmetic &ob)
+    Arithmetic operator-(Arithmetic &clasS_Obj)
     {
         Arithmetic temp;
-        temp.x=x-ob.x;
+        temp.operand=operand-clasS_Obj.operand;
         return temp;
     }
     friend istream & operator>>(istream &, Arithmetic &);
     friend ostream & operator<<(ostream &, Arithmetic &);
 };
-istream & operator>>(istream &in, Arithmetic &a)
+istream & operator>>(istream &in, Arithmetic &operand_3)
 {
 
     cout<<"\n Enter the DATA : ";
-    in>>a.x;
+    in>>operand_3.operand;
 
     return in;
 }
 ostream & operator<<(ostream &out, Arithmetic &b)
 {
-    float y;
+    float operand_2;
     cout<<endl<<"\t\t";
-    out<<y;
+    out<<operand_2;
 
     return out;
 }
 class Mod
 {
 private:
-    int y;
+    int operand_2;
 public:
-   Mod operator%(Mod &ob)
+   Mod operator%(Mod &clasS_Obj)
     {
        Mod temp;
-        temp.y=y%ob.y;
+        temp.operand_2=operand_2%clasS_Obj.operand_2;
         return temp;
     }
     friend istream & operator>>(istream &, Mod &);
     friend ostream & operator<<(ostream &,  Mod &);
 };
-istream & operator>>(istream &in, Mod &a)
+istream & operator>>(istream &in, Mod &operand_3)
 {
 
     cout<<"\n Enter the DATA : ";
-    in>>a.y;
+    in>>operand_3.operand_2;
 
     return in;
 }
 ostream & operator<<(ostream &out, Mod &b)
 {
-    int z;
+    int operand_3;
     cout<<endl<<"\t\t";
-    out<<z;
+    out<<operand_3;
 
     return out;
 }
@@ -120,146 +120,146 @@ void mat_add();
 void Trigonometric :: cosQ()
 
 {
-	double a, result ;
+	double var, result ;
 	cout<< "\n Enter the angle : ";
-	cin>> a;
-	result = cos(a * PI / 180);
-	cout<< "The cosine of " << a << " is " << result << endl;
+	cin>> var;
+	result = cos(var * PI / 180);
+	cout<< "The cosine of " << var << " is " << result << endl;
 }
 
 void Trigonometric :: sinQ()
 
 {
-	double a, result ;
+	double var, result ;
 	cout<< "\n Enter the angle : ";
-	cin>> a;
-	result = sin(a * PI / 180);
-	cout<< "the sine of " << a << " is " << result << endl;
+	cin>> var;
+	result = sin(var * PI / 180);
+	cout<< "the sine of " << var << " is " << result << endl;
 }
 
 void Trigonometric :: tanQ()
 
 {
-	double a, result ;
+	double var, result ;
 	cout<< "\n Enter the angle : ";
-	cin>> a;
-	result = tan(a * PI / 180);
-	cout<< "The tan of the " << a << " is " << result << endl;
+	cin>> var;
+	result = tan(var * PI / 180);
+	cout<< "The tan of the " << var << " is " << result << endl;
 }
 
 void Trigonometric :: coshQ()
 
 {
-	double a, result ;
+	double var, result ;
 	cout<< "\n Enter the angle : ";
-	cin>> a;
-	result = cosh(a);
-	cout<< "The hyperbolic cosine of " << a << " is " << result << endl;
+	cin>> var;
+	result = cosh(var);
+	cout<< "The hyperbolic cosine of " << var << " is " << result << endl;
 }
 
 void Trigonometric :: sinhQ()
 
 {
-	double a, result ;
+	double var, result ;
 	cout<< "\n Enter the angle : ";
-	cin>> a;
-	result = sinh(a);
-	cout<< "The hyperbolic sine of " << a << " is " << result << endl;
+	cin>> var;
+	result = sinh(var);
+	cout<< "The hyperbolic sine of " << var << " is " << result << endl;
 }
 
 void Trigonometric :: tanhQ()
 
 {
 
-	double a, result ;
+	double var, result ;
 	cout<< "\n Enter the angle : ";
-	cin>> a;
-	result = tanh(a);
-	cout<< "The hyperbolic tangent of " << a << " is " << result << endl;
+	cin>> var;
+	result = tanh(var);
+	cout<< "The hyperbolic tangent of " << var << " is " << result << endl;
 }
 
 void Trigonometric :: acosQ()
 
 {
-	double a, result ;
+	double var, result ;
 	cout<< "\n Enter the angle : ";
-	cin>> a;
-	result = acos(a) * 180.0 / PI;
-	cout<< "The arc cosine of " << a << " is " << result << endl;
+	cin>> var;
+	result = acos(var) * 180.0 / PI;
+	cout<< "The arc cosine of " << var << " is " << result << endl;
 }
 
 void Trigonometric :: asinQ()
 
 {
-	double a, result ;
+	double var, result ;
 	cout<< "\n Enter the angle : ";
-	cin>> a;
-	result = asin(a) * 180.0 / PI;
-	cout<< "The arc sine of " << a << " is " << result << endl;
+	cin>> var;
+	result = asin(var) * 180.0 / PI;
+	cout<< "The arc sine of " << var << " is " << result << endl;
 }
 
 void Trigonometric :: atanQ()
 
 {
-	double a, result ;
+	double var, result ;
 	cout<< "\n Enter the angle : ";
-	cin>> a;
-	result = tanh(a);
-	cout<< "The arc tangential of " << a << " is " << result << endl;
+	cin>> var;
+	result = tanh(var);
+	cout<< "The arc tangential of " << var << " is " << result << endl;
 }
 
 void Measurement :: expQ()
 
 {
-	double a, result;
+	double var, result;
 	cout<< "\n Enter the number : ";
-	cin>> a;
-	result = exp(a);
-	cout<< "The exponential value of " << a << " is = " << result << endl;
+	cin>> var;
+	result = exp(var);
+	cout<< "The exponential value of " << var << " is = " << result << endl;
 }
 
 void Measurement :: logQ()
 
 {
-	double a, result;
+	double var, result;
 	cout<< "\n Enter the value to take a log : ";
-	cin>> a;
-	result = log(a);
-	cout<< "The logarithm of " << a << " is " << result << endl;
+	cin>> var;
+	result = log(var);
+	cout<< "The logarithm of " << var << " is " << result << endl;
 }
 
 void Measurement :: log10Q()
 
 {
-	double a, result;
+	double var, result;
 	cout<< "\n Enter the value to take a log : ";
-	cin>> a;
-	result = log10(a);
-	cout<< "The common logarithm of " << a << " is " << result << endl;
+	cin>> var;
+	result = log10(var);
+	cout<< "The common logarithm of " << var << " is " << result << endl;
 }
 
 void Trigonometric :: atan2Q()
 
 {
-	double a, b, result ;
+	double var, b, result ;
 	cout<< "\n Enter the first number : ";
-	cin>> a;
+	cin>> var;
 	cout<< "\n Enter second the number : ";
 	cin>> b;
-	result = atan2(a, b) * 180 / PI;
-	cout<< "The arc tangent for " << a << " and " << b << " is " << result << endl;
+	result = atan2(var, b) * 180 / PI;
+	cout<< "The arc tangent for " << var << " and " << b << " is " << result << endl;
 
 }
 
 void Measurement :: powQ()
 {
-	int a, b, power;
+	int var, b, power;
 	cout<< "\n Enter the number : ";
-	cin>> a;
+	cin>> var;
 	cout<< "\n Enter the power : ";
 	cin>> b;
-	power = pow(a, b);
-	cout<< "\n" << a << " Raise to power " << b << " is " << power;
+	power = pow(var, b);
+	cout<< "\n" << var << " Raise to power " << b << " is " << power;
 
 }
 void Measurement :: fToC()
