@@ -203,99 +203,6 @@ void mat_product();
 void mat_transpose();
 void mat_add();
 };
-<<<<<<< HEAD
-void Trigonometric :: cosQ()
-
-{
-	double var, result ;
-	cout<< "\n Enter the angle : ";
-	cin>> var;
-	result = cos(var * PI / 180);
-	cout<< "The cosine of " << var << " is " << result << endl;
-}
-
-void Trigonometric :: sinQ()
-
-{
-	double var, result ;
-	cout<< "\n Enter the angle : ";
-	cin>> var;
-	result = sin(var * PI / 180);
-	cout<< "the sine of " << var << " is " << result << endl;
-}
-
-void Trigonometric :: tanQ()
-
-{
-	double var, result ;
-	cout<< "\n Enter the angle : ";
-	cin>> var;
-	result = tan(var * PI / 180);
-	cout<< "The tan of the " << var << " is " << result << endl;
-}
-
-void Trigonometric :: coshQ()
-
-{
-	double var, result ;
-	cout<< "\n Enter the angle : ";
-	cin>> var;
-	result = cosh(var);
-	cout<< "The hyperbolic cosine of " << var << " is " << result << endl;
-}
-
-void Trigonometric :: sinhQ()
-
-{
-	double var, result ;
-	cout<< "\n Enter the angle : ";
-	cin>> var;
-	result = sinh(var);
-	cout<< "The hyperbolic sine of " << var << " is " << result << endl;
-}
-
-void Trigonometric :: tanhQ()
-
-{
-
-	double var, result ;
-	cout<< "\n Enter the angle : ";
-	cin>> var;
-	result = tanh(var);
-	cout<< "The hyperbolic tangent of " << var << " is " << result << endl;
-}
-
-void Trigonometric :: acosQ()
-
-{
-	double var, result ;
-	cout<< "\n Enter the angle : ";
-	cin>> var;
-	result = acos(var) * 180.0 / PI;
-	cout<< "The arc cosine of " << var << " is " << result << endl;
-}
-
-void Trigonometric :: asinQ()
-
-{
-	double var, result ;
-	cout<< "\n Enter the angle : ";
-	cin>> var;
-	result = asin(var) * 180.0 / PI;
-	cout<< "The arc sine of " << var << " is " << result << endl;
-}
-
-void Trigonometric :: atanQ()
-
-{
-	double var, result ;
-	cout<< "\n Enter the angle : ";
-	cin>> var;
-	result = tanh(var);
-	cout<< "The arc tangential of " << var << " is " << result << endl;
-}
-=======
->>>>>>> bd4024c17b115c638740d4a6ffc5ca425dc6bcc5
 
 void Measurement :: expQ()
 
@@ -587,7 +494,7 @@ int main()
 				cout<< "(1) Addition \n";
 				cout<< "(2) Multiplication\n";
 				cout<< "(3) Subtraction \n";
-				cout<< "(4) Division\n";
+				cout<< "(4) Division\n"<<"\tOption : \n";
 				//avoid infinite loop when a character is entered and corrupts the int cin//
 				if (!(cin>> function_ctrl))
 				{
@@ -662,7 +569,7 @@ int main()
     }
     cout<<sum;
     cout<<" is the sum of "<<n<<" numbers. "<<endl;
-			cout<< "-----exiting------\n";break;
+			cout<< "-----exiting------\n"<<"Do You wish to store your answer? (y/";break;
 		}
 		case 2:
 		{
@@ -870,5 +777,3 @@ int main()
 		cin>> control;
 	}
 }
-
-
