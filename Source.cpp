@@ -85,17 +85,103 @@ ostream & operator<<(ostream &out, Mod &b)
 class Trigonometric
 {
 public:
-void cosQ();
-void sinQ();
-void tanQ();
-void coshQ();
-void sinhQ();
-void tanhQ();
-void acosQ();
-void asinQ();
-void atanQ();
 void atan2Q();
+private:
+ double angle;
+    double cosgetx()
+    {
+    return cos(angle * PI/180);
+    }
+    double singetx()
+    {
+    return sin(angle * PI/180);
+    }
+    double tangetx()
+    {
+    return tan(angle * PI/180);
+    }
+    double coshgetx()
+    {
+    return cosh(angle * PI/180);
+    }
+    double sinhgetx()
+    {
+    return sinh(angle * PI/180);
+    }
+    double tanhgetx()
+    {
+    return tanh(angle * PI/180);
+    }
+    double acosgetx()
+    {
+    return (angle*cosgetx());
+    }
+    double asingetx()
+    {
+    return (angle*singetx());
+    }
+    double atangetx()
+    {
+    return (angle*tangetx());
+    }
+
+ public:
+  void displaycos()
+  {
+      cout<<endl;
+      cout<<"The cosine of the " << angle << " is " << cosgetx();
+  }
+  void displaysin()
+  {
+      cout<<endl;
+      cout<<"The sin of the " << angle << " is " << singetx();
+  }
+  void displaytan()
+  {
+      cout<<endl;
+      cout<<"The tan of the " << angle << " is " << tangetx();
+  }
+  void displaycosh()
+  {
+      cout<<endl;
+      cout<<"The hyperbolic cosine of " << angle << " is " << coshgetx();
+  }
+  void displaysinh()
+  {
+      cout<<endl;
+      cout<<"The hyperbolic sine of " << angle << " is " << sinhgetx();
+  }
+  void displaytanh()
+  {
+      cout<<endl;
+      cout<<"The hyperbolic tangent of " << angle << " is " << tanhgetx();
+  }
+  void displayacos()
+  {
+      cout<<endl;
+      cout<<"The arc cosine of "  << angle << " is " << acosgetx();
+  }
+  void displayasin()
+  {
+      cout<<endl;
+      cout<<"The arc sine of " << angle << " is " << asingetx();
+  }
+  void displayatan()
+  {
+      cout<<endl;
+      cout<<"The arc tangential of " << angle << " is " << atangetx();
+  }
+    friend istream & operator>>(istream &, Trigonometric &);
+
 };
+istream & operator>>(istream &in, Trigonometric &a)
+{
+
+    cout<<"\n Enter the angle : ";
+    in>>a.angle;
+
+    return in;
+}
 class Measurement
 {
 public :
@@ -117,6 +203,7 @@ void mat_product();
 void mat_transpose();
 void mat_add();
 };
+<<<<<<< HEAD
 void Trigonometric :: cosQ()
 
 {
@@ -207,6 +294,8 @@ void Trigonometric :: atanQ()
 	result = tanh(var);
 	cout<< "The arc tangential of " << var << " is " << result << endl;
 }
+=======
+>>>>>>> bd4024c17b115c638740d4a6ffc5ca425dc6bcc5
 
 void Measurement :: expQ()
 
@@ -444,41 +533,29 @@ void Matrix_Calculation :: mat_add()
 void Measurement ::compoundInterest()
 {
     float p,r,t,ci;
-
     cout<<"Enter Principle (Amount) :: ";
     cin>>p;
     cout<<"\nEnter Rate of Interest per annum :: ";
     cin>>r;
     cout<<"\nEnter Time Period in years :: ";
     cin>>t;
-
     ci = p*pow((1+r/100),t);
-
     cout<<"\nThe Calculated Compound Interest is = "<<ci<<"\n";
-
 }
 void Measurement :: simpleInterest()
 {
     float p,r,t,si,a;
-
     cout<<"Enter Principle (Amount) :: ";
     cin>>p;
     cout<<"\nEnter Rate of Interest per annum :: ";
     cin>>r;
     cout<<"\nEnter Time Period in years :: ";
     cin>>t;
-
     si=p*r*t/100;
-
     a=p+si;
-
     cout<<"\nThe Calculated Simple Interest is = "<<si<<"\n";
-
     cout<<"\nThe Total Amount after including Interest value = "<<a<<"\n";
-
 }
-
-
 int main()
 {
 	//one integer for loop control and one for function control//
@@ -501,106 +578,64 @@ int main()
 		{
 			cout<< "\n error wrong option entered \n" << "try again ?(y/n)";
 			cin>> control;
-
 		}
 		else
 		{
 			while (loop_ctrl == 1)
 			{
 				cout<< "\n Enter desired operation using key provided in brackets '()' :\n";
-
 				cout<< "(1) Addition \n";
-
 				cout<< "(2) Multiplication\n";
-
 				cout<< "(3) Subtraction \n";
-
 				cout<< "(4) Division\n";
-
 				//avoid infinite loop when a character is entered and corrupts the int cin//
 				if (!(cin>> function_ctrl))
 				{
 					cin.clear();
 					cin.ignore(numeric_limits<streamsize>::max() );
 					cout<<"\n you have entered wrong choice";
-
 				}
-
 				if (function_ctrl > 4 || function_ctrl< 1)
 				{
 					function_ctrl = 0;
 					cout<< "\n you have entered a wrong choice\n"; break;
-
 				}
 				cout<< "\n check complete\n";
 				break;
-
-
 			}
 			while (loop_ctrl == 2)
 			{
 				cout<< "Enter desired operation using key provided in brackets '()'\n scientific options key is (s.number) :\n";
-
 				cout<< "(1)  Addition \n";
-
 				cout<< "(2)  Multiplication\n";
-
 				cout<< "(3)  Subtraction \n";
-
 				cout<< "(4)  Division\n<<<<<<SCEINTIFIC OPERATIONS>>>>>>\n";
-
 				cout<< "(5)  Remainder\n";
-
 				cout<< "(6)  Square\n";
-
 				cout<< "(7)  Cube\n";
-
 				cout<< "(8)  Cosine\n";
-
 				cout<< "(9)  Sine\n";
-
 				cout<< "(10) Tangent\n";
-
 				cout<< "(11) Hyperbolic tangent\n";
-
 				cout<< "(12) Hyperbolic cosine\n";
-
 				cout<< "(13) Hyperbolic sine\n";
-
 				cout<< "(14) Arc cosine\n";
-
 				cout<< "(15) Arc sine\n";
-
 				cout<< "(16) Arc tangential\n";
-
 				cout<< "(17) Exponent\n";
-
 				cout<< "(18) Logarithm\n";
-
 				cout<< "(19) Common logarithm i.e log10\n";
-
 				cout<< "(20) Arc tangent for 2 numbers \n";
-
 				cout<< "(21) Power\n<<<<<<MEASUREMENT AND 2D OPERATIONS>>>>>>\n";
-
 				cout<< "(22) Farenheit to Celsius conversion\n";
-
 				cout<< "(23) Volume of various objects (contains sub menu)\n";
-
 				cout<< "(24) Area of various objects (contains sub menu)\n";
-
 				cout<< "(25) Matrix multiplication\n";
-
 				cout<< "(26) Matrix transpose\n";
-
 				cout<< "(27) Matrix addition\n";
-
 				cout<< "(28) Compound Interest\n";
-
 				cout<< "(29) Simple Interest\n";
-
 				cout<<"\n\tOption : ";
-
 				//avoid infinite loop when a character is entered and corrupts the int cin//
 				if (!(cin>> function_ctrl))
 				{
@@ -610,12 +645,9 @@ int main()
 				}
 				cout<< "\n check complete\n";
 				break;
-
 			}
 		}
-
 		switch (function_ctrl)
-
 		{
 		case 1:
 		{
@@ -625,71 +657,57 @@ int main()
         cin>>n;
     for (int i = 0; i < n; i++)
     {
-
         cin>>a[i];
         sum = a[i] + sum;
     }
-
     cout<<sum;
     cout<<" is the sum of "<<n<<" numbers. "<<endl;
 			cout<< "-----exiting------\n";break;
 		}
-
 		case 2:
 		{
         Arithmetic t,w,ans;
         cin>>t>>w;
-
         ans=t*w;
         cout<<ans;
          cout<<" is multiplication of two numbers.";
         cout<<endl;
 			cout<< "-----exiting------\n";break;
 		}
-
 		case 3:
 		{
 		Arithmetic t,w,ans;
         cin>>t>>w;
-
         ans=t-w;
         cout<<ans;
         cout<<" is Subtraction of two numbers.";
         cout<<endl;
 			cout<< "-----exiting------\n";break;
 		}
-
 		case 4:
-
 		{
         Arithmetic t,w,ans;
         cin>>t>>w;
-
         ans=t/w;
         cout<<ans;
         cout<<" is division of two numbers.";
         cout<<endl;
 			cout<< "-----exiting------\n";break;
 		}
-
 		case 5:
-
 		{
         Mod t,w,ans;
         cin>>t>>w;
-
         ans=t%w;
         cout<<ans;
         cout<<" is reminder of two numbers.";
         cout<<endl;
 			cout<< "-----exiting------\n";break;
 		}
-
 		case 6:
 		{
         Arithmetic t,w,ans;
         cin>>t;
-
         ans=t*t;
         cout<<ans;
         cout<<" is the square";
@@ -700,69 +718,84 @@ int main()
 		{
         Arithmetic t,w,ans;
         cin>>t;
-
         ans=t*t*t;
         cout<<ans;
         cout<<" is the cube";
         cout<<endl;
 			cout<< "-----exiting------\n";break;
 		}
-
 		case 8:
 		{
-			tri.cosQ();
+			Trigonometric o1,o3;
+            cin>>o1;
+            o1.displaycos();
+            cout<<endl;
 			cout<< "-----exiting------\n";break;
 		}
-
 		case 9:
 		{
-			tri.sinQ();
+			Trigonometric o1,o3;
+            cin>>o1;
+            o1.displaysin();
+            cout<<endl;
 			cout<< "-----exiting------\n";break;
 		}
-
 		case 10:
 		{
-			tri.tanQ();
+			Trigonometric o1,o3;
+            cin>>o1;
+            o1.displaytan();
+            cout<<endl;
 			cout<< "-----exiting------\n";break;
 		}
-
 		case 11:
 		{
-			tri.coshQ();
+			Trigonometric o1,o3;
+            cin>>o1;
+            o1.displaycosh();
+            cout<<endl;
 			cout<< "-----exiting------*\n";break;
 		}
-
 		case 12:
-
 		{
-			tri.sinhQ();
+			Trigonometric o1,o3;
+            cin>>o1;
+            o1.displaysinh();
+            cout<<endl;
 			cout<< "-----exiting------\n";break;
 		}
-
 		case 13:
 		{
-			tri.tanhQ();
+			Trigonometric o1,o3;
+            cin>>o1;
+            o1.displaytanh();
+            cout<<endl;
 			cout<< "-----exiting------\n";break;
 		}
-
 		case 14:
 		{
-			tri.acosQ();
+			Trigonometric o1,o3;
+            cin>>o1;
+            o1.displayacos();
+            cout<<endl;
 			cout<< "-----exiting------\n";break;
 		}
-
 		case 15:
 		{
-			tri.asinQ();
+			Trigonometric o1,o3;
+            cin>>o1;
+            o1.displayasin();
+            cout<<endl;
 			cout<< "-----exiting------\n";break;
 		}
-
 		case 16:
 		{
-			tri.atanQ();
+			Trigonometric o1,o3;
+            cin>>o1;
+            o1.displayatan();
+            cout<<endl;
 			cout<< "-----exiting------\n";break;
 		}
-
 		case 17:
 		{
 			mea.expQ();
@@ -773,20 +806,16 @@ int main()
 			mea.logQ();
 			cout<< "-----exiting------\n";break;
 		}
-
 		case 19:
 		{
 			mea.log10Q();
 			cout<< "-----exiting------\n";break;
 		}
-
 		case 20:
-
 		{
 			tri.atan2Q();
 			cout<< "-----exiting------\n";break;
 		}
-
 		case 21:
 		{
 			mea.powQ();
@@ -832,12 +861,10 @@ int main()
 			mea.simpleInterest();
 			cout<< "\n-----exiting------\n";break;
 		}
-
 		default :
 		{
 			cout<<"\n wrong choice entered";break;
 		}
-
 		}
 		cout<< "\n want to continue? (y/n)";
 		cin>> control;
