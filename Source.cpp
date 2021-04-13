@@ -7,27 +7,39 @@ using namespace std;
 class Arithmetic{
 private:
     float operand;
-public:
-
+public: 
 Arithmetic operator+(Arithmetic &clasS_Obj)
     {
         Arithmetic temp;
         temp.operand=operand+clasS_Obj.operand;
         return temp;
     }
-    Arithmetic operator*(Arithmetic &clasS_Obj)
+Arithmetic operator*(Arithmetic &clasS_Obj)
     {
         Arithmetic temp;
         temp.operand=operand*clasS_Obj.operand;
         return temp;
     }
-    Arithmetic operator/(Arithmetic &clasS_Obj)
+Arithmetic operator/(Arithmetic &clasS_Obj)
     {
+		try
+		{
         Arithmetic temp;
         temp.operand=operand/clasS_Obj.operand;
-        return temp;
+		if(clasS_Obj.operand==0)
+		{
+			throw(clasS_Obj.operand);
+		}
+		return temp;
+		}
+		catch(...)
+		{
+			cout<<"cannot divide a number by zero ";
+			terminate();
+
+		}
     }
-    Arithmetic operator-(Arithmetic &clasS_Obj)
+Arithmetic operator-(Arithmetic &clasS_Obj)
     {
         Arithmetic temp;
         temp.operand=operand-clasS_Obj.operand;
@@ -351,6 +363,8 @@ void Matrix_Calculation :: mat_product()
     cin >> r1 >> c1;
     cout << "Enter number of rows and columns of matrix B : ";
     cin >> r2 >> c2;
+	
+	
     if (c1 != r2)
     {
         cout << "Matrices cannot be multiplied!";
