@@ -2,12 +2,14 @@
 #include<stdlib.h>
 #include<limits>
 #include<math.h>
+#include<fstream>
 #define PI 3.141
 using namespace std;
+
 class Arithmetic{
 private:
     float operand;
-public: 
+public:
 Arithmetic operator+(Arithmetic &clasS_Obj)
     {
         Arithmetic temp;
@@ -22,22 +24,10 @@ Arithmetic operator*(Arithmetic &clasS_Obj)
     }
 Arithmetic operator/(Arithmetic &clasS_Obj)
     {
-		try
-		{
-        Arithmetic temp;
-        temp.operand=operand/clasS_Obj.operand;
-		if(clasS_Obj.operand==0)
-		{
-			throw(clasS_Obj.operand);
-		}
-		return temp;
-		}
-		catch(...)
-		{
-			cout<<"cannot divide a number by zero ";
-			terminate();
+           Arithmetic temp;
+		   temp.operand=operand/clasS_Obj.operand;
+		   return temp;
 
-		}
     }
 Arithmetic operator-(Arithmetic &clasS_Obj)
     {
@@ -138,50 +128,97 @@ private:
     }
 
  public:
+
   void displaycos()
   {
+      ofstream fout;
+      fout.open("calculator.txt",ios::app);
       cout<<endl;
+      fout<<"Cosine : ";
+      fout<<cosgetx();
       cout<<"The cosine of the " << angle << " is " << cosgetx();
+      fout<<endl;
+
   }
   void displaysin()
   {
+      ofstream fout;
+      fout.open("calculator.txt",ios::app);
       cout<<endl;
+      fout<<"Sin : ";
+      fout<<singetx();
       cout<<"The sin of the " << angle << " is " << singetx();
+      fout<<endl;
   }
   void displaytan()
   {
+      ofstream fout;
+      fout.open("calculator.txt",ios::app);
       cout<<endl;
+      fout<<"Tan : ";
+      fout<<tangetx();
       cout<<"The tan of the " << angle << " is " << tangetx();
+      fout<<endl;
   }
   void displaycosh()
   {
+      ofstream fout;
+      fout.open("calculator.txt",ios::app);
       cout<<endl;
+      fout<<"Hyperbolic cosine : ";
+      fout<<coshgetx();
       cout<<"The hyperbolic cosine of " << angle << " is " << coshgetx();
+      fout<<endl;
   }
   void displaysinh()
   {
+      ofstream fout;
+      fout.open("calculator.txt",ios::app);
       cout<<endl;
+      fout<<"Hyperbolic Sine : ";
+      fout<<singetx();
       cout<<"The hyperbolic sine of " << angle << " is " << sinhgetx();
+      fout<<endl;
   }
   void displaytanh()
   {
+      ofstream fout;
+      fout.open("calculator.txt",ios::app);
       cout<<endl;
+      fout<<"Hyperbolic Tangent : ";
+      fout<<tanhgetx();
       cout<<"The hyperbolic tangent of " << angle << " is " << tanhgetx();
+      fout<<endl;
   }
   void displayacos()
   {
+      ofstream fout;
+      fout.open("calculator.txt",ios::app);
       cout<<endl;
+      fout<<"Arc cosine : ";
+      fout<<acosgetx();
       cout<<"The arc cosine of "  << angle << " is " << acosgetx();
+      fout<<endl;
   }
   void displayasin()
   {
+      ofstream fout;
+      fout.open("calculator.txt",ios::app);
       cout<<endl;
+      fout<<"Arc sine : ";
+      fout<<asingetx();
       cout<<"The arc sine of " << angle << " is " << asingetx();
+      fout<<endl;
   }
   void displayatan()
   {
+      ofstream fout;
+      fout.open("calculator.txt",ios::app);
       cout<<endl;
+      fout<<"Arc Tangential : ";
+      fout<<atangetx();
       cout<<"The arc tangential of " << angle << " is " << atangetx();
+      fout<<endl;
   }
     friend istream & operator>>(istream &, Trigonometric &);
 
@@ -220,95 +257,150 @@ void Measurement :: expQ()
 
 {
 	double var, result;
+	ofstream fout;
+    fout.open("calculator.txt",ios::app);
+    fout<<"Exponent : ";
 	cout<< "\n Enter the number : ";
 	cin>> var;
 	result = exp(var);
+	fout<<result;
 	cout<< "The exponential value of " << var << " is = " << result << endl;
+	fout<<endl;
 }
 
 void Measurement :: logQ()
 
 {
 	double var, result;
+	ofstream fout;
+    fout.open("calculator.txt",ios::app);
+    fout<<"Log : ";
 	cout<< "\n Enter the value to take a log : ";
 	cin>> var;
 	result = log(var);
+	fout<<result;
 	cout<< "The logarithm of " << var << " is " << result << endl;
+	fout<<endl;
 }
 
 void Measurement :: log10Q()
 
 {
 	double var, result;
+	ofstream fout;
+    fout.open("calculator.txt",ios::app);
+    fout<<"Log10 : ";
 	cout<< "\n Enter the value to take a log : ";
 	cin>> var;
 	result = log10(var);
+	fout<<result;
 	cout<< "The common logarithm of " << var << " is " << result << endl;
+	fout<<endl;
 }
 
 void Trigonometric :: atan2Q()
 
 {
 	double var, b, result ;
+	ofstream fout;
+    fout.open("calculator.txt",ios::app);
+    fout<<"Tan2Q : ";
 	cout<< "\n Enter the first number : ";
 	cin>> var;
 	cout<< "\n Enter second the number : ";
 	cin>> b;
 	result = atan2(var, b) * 180 / PI;
+	fout<<result;
 	cout<< "The arc tangent for " << var << " and " << b << " is " << result << endl;
+	fout<<endl;
 
 }
 
 void Measurement :: powQ()
 {
 	int var, b, power;
+	ofstream fout;
+    fout.open("calculator.txt",ios::app);
+    fout<<"Power : ";
 	cout<< "\n Enter the number : ";
 	cin>> var;
 	cout<< "\n Enter the power : ";
 	cin>> b;
 	power = pow(var, b);
+	fout<<power;
 	cout<< "\n" << var << " Raise to power " << b << " is " << power;
-
+	fout<<endl;
 }
 void Measurement :: fToC()
  {
 	 double fahrenheit=0,celsius=0;
-	cout<<" Enter the temperature in fahrenheit : ";
-	cin>>fahrenheit;
+	 ofstream fout;
+     fout.open("calculator.txt",ios::app);
+     fout<<"Celsius : ";
+	 cout<<" Enter the temperature in fahrenheit : ";
+	 cin>>fahrenheit;
      celsius = (fahrenheit-32.0)* 5.0/9.0;
+     fout<<celsius;
      cout<<"The temperature in celsius is "<<celsius;
+     fout<<endl;
  }
 void Measurement :: volume ()
 {
 	double x1,x2,x3;
 	int ch;
+	ofstream fout;
+    fout.open("calculator.txt",ios::app);
 	cout<<"\n\t 1> Cube\n\t 2> Cuboid\n\t 3> Sphere\n\t 4> Cylinder";
 	cin>>ch;
 	switch (ch)
 	{
 		case 1:
 		{
+		    int ans;
+		    fout<<"Volume : ";
 			cout<<"\n Enter the side length : ";
 			cin>>x1;
-			cout<<"\n The volume is "<<x1*x1*x1;break;
+			ans=x1*x1*x1;
+			fout<<ans;
+			cout<<"\n The volume is "<<ans;
+			fout<<endl;
+			break;
 		}
 		case 2:
 		{
+		    int x;
+		    fout<<"Volume : ";
 			cout<<"\n Enter the length , height and breadth of cuboid : ";
 			cin>>x1>>x2>>x3;
-			cout<<"\n The volume is "<<x1*x2*x3;break;
+			x=x1*x2*x3;
+			fout<<x;
+			cout<<"\n The volume is "<<x;
+			fout<<endl;
+			break;
 		}
 		case 3:
 		{
+		    int x;
+		    fout<<"Volume : ";
 			cout<<"\n Enter the radius : ";
 			cin>>x1;
-			cout<<"\n The volume is "<<x1*(4/3)*x1*x1*PI;break;
+			x=x1*(4/3)*x1*x1*PI;
+			fout<<x;
+			cout<<"\n The volume is "<<x;
+			fout<<endl;
+			break;
 		}
 		case 4:
 		{
+		    int x;
+		    fout<<"Volume : ";
 			cout<<"\nEnter the radius and height : ";
 			cin>>x1>>x2;
-			cout<<"\n The volume is "<<x1*x2*x1*PI;break;
+			x=x1*x2*x1*PI;
+			fout<<x;
+			cout<<"\n The volume is "<<x;
+			fout<<endl;
+			break;
 		}
 		default:
 		{
@@ -320,6 +412,8 @@ void Measurement :: area ()
 {
 	double x1,x2;
 	int ch;
+	ofstream fout;
+    fout.open("calculator.txt",ios::app);
 	cout<<"\n\t 1> Square \n\t 2> Rectangle\n\t 3> Circle\n\t 4> Triangle"<<endl;
 	cout<<"Option : ";
 	cin>>ch;
@@ -327,27 +421,51 @@ void Measurement :: area ()
 	{
 		case 1:
 		{
+		    int ans;
+		    fout<<"Area : ";
 			cout<<"\n Enter the side length : ";
 			cin>>x1;
-			cout<<"\n The area is "<<x1*x1;break;
+			ans=x1*x1;
+			fout<<ans;
+			cout<<"\n The area is "<<ans;
+			fout<<endl;
+			break;
 		}
 		case 2:
 		{
+		    int ans;
+		    fout<<"Area : ";
 			cout<<"\n Enter the length and breadth of rectangle : ";
 			cin>>x1>>x2;
-			cout<<"\n The area is "<<x1*x2;break;
+			ans=x1*x2;
+			fout<<ans;
+			cout<<"\n The area is "<<ans;
+			fout<<endl;
+			break;
 		}
 		case 3:
 		{
+		    int ans;
+		    fout<<"Area : ";
 			cout<<"\n Enter the radius : ";
 			cin>>x1;
-			cout<<"\n The area is "<<x1*x1*PI;break;
+			ans=x1*x1*PI;
+			fout<<ans;
+			cout<<"\n The area is "<<ans;
+			fout<<endl;
+			break;
 		}
 		case 4:
 		{
+		    int ans;
+		    fout<<"Area : ";
 			cout<<"\n Enter the base and height : ";
 			cin>>x1>>x2;
-			cout<<"\n The area is "<<x1*x2*0.5;break;
+			ans=x1*x2*0.5;
+			fout<<ans;
+			cout<<"\n The area is "<<ans;
+			fout<<endl;
+			break;
 		}
 		default:
 		{
@@ -357,14 +475,16 @@ void Measurement :: area ()
 }
 void Matrix_Calculation :: mat_product()
 {
+    ofstream fout;
+    fout.open("calculator.txt",ios::app);
     int r1, c1, r2, c2, i, j, k;
     int A[5][5], B[5][5], C[5][5];
     cout << "\nEnter number of rows and columns of matrix A : ";
     cin >> r1 >> c1;
     cout << "Enter number of rows and columns of matrix B : ";
     cin >> r2 >> c2;
-	
-	
+
+
     if (c1 != r2)
     {
         cout << "Matrices cannot be multiplied!";
@@ -389,16 +509,25 @@ void Matrix_Calculation :: mat_product()
             }
         }
     }
+    fout<<"Product of matrices : ";
+    fout<<endl;
     cout << "Product of matrices\n";
     for (i = 0; i < r1; i++)
     {
         for (j = 0; j < c2; j++)
-            cout << C[i][j] << "  ";
+            {
+                cout << C[i][j] << "  ";
+                fout<<C[i][j]<<"\t";
+            }
+            fout<<endl;
         cout << "\n";
     }
+    fout<<endl;
 }
 void Matrix_Calculation :: mat_transpose()
 {
+	ofstream fout;
+	fout.open("calculator.txt",ios::app);
     int A[10][10], m, n, i, j;
     cout << "\nEnter rows and columns of matrix : ";
     cin >> m >> n;
@@ -413,16 +542,24 @@ void Matrix_Calculation :: mat_transpose()
             cout << A[i][j] << " ";
         cout << "\n ";
     }
+	fout<<"The Transpose of matrix is :\n";
     cout << "Transpose of Matrix : \n ";
     for (i = 0; i < n; i++)
     {
         for (j = 0; j < m; j++)
+		{
             cout << A[j][i] << " ";
+			fout<<A[j][i] << "\t";
+		}
         cout << "\n ";
+		fout<<"\n";
     }
+	fout<<"\n";
 }
 void Matrix_Calculation :: mat_add()
 {
+	ofstream fout;
+    fout.open("calculator.txt",ios::app);
     int m, n, p, q, i, j, A[5][5], B[5][5], C[5][5];
     cout << "\nEnter rows and column of matrix A : ";
     cin >> m >> n;
@@ -444,15 +581,25 @@ void Matrix_Calculation :: mat_add()
     for (i = 0; i < m; i++)
         for (j = 0; j < n; j++)
             C[i][j] = A[i][j] + B[i][j];
+	fout<<"Sum of the matrices : ";
+    fout<<endl;	
+	
     cout << "Sum of matrices\n";
     for (i = 0; i < m; i++)
     {    for (j = 0; j < n; j++)
-            cout << C[i][j] << "  ";
+		{
+            	cout << C[i][j] << "  ";
+				fout <<C[i][j] << "  ";
+		}
         cout << "\n";
+		fout<<"\n";
     }
+	fout<<"\n";	
 }
 void Measurement ::compoundInterest()
 {
+	ofstream fout;
+	fout.open("calculation.txt",ios::app);
     float p,r,t,ci;
     cout<<"Enter Principle (Amount) :: ";
     cin>>p;
@@ -461,10 +608,13 @@ void Measurement ::compoundInterest()
     cout<<"\nEnter Time Period in years :: ";
     cin>>t;
     ci = p*pow((1+r/100),t);
+	fout<<"The Calculated Compound Interest is = "<<ci<<"\n";
     cout<<"\nThe Calculated Compound Interest is = "<<ci<<"\n";
 }
 void Measurement :: simpleInterest()
 {
+	ofstream fout;
+	fout.open("calculation.txt",ios::app);
     float p,r,t,si,a;
     cout<<"Enter Principle (Amount) :: ";
     cin>>p;
@@ -474,6 +624,8 @@ void Measurement :: simpleInterest()
     cin>>t;
     si=p*r*t/100;
     a=p+si;
+	fout<<"The Calculated Simple Interest is = "<<si<<"\n";
+    fout<<"The Total Amount after including Interest value = "<<a<<"\n";
     cout<<"\nThe Calculated Simple Interest is = "<<si<<"\n";
     cout<<"\nThe Total Amount after including Interest value = "<<a<<"\n";
 }
@@ -485,6 +637,9 @@ int main()
 	Matrix_Calculation mat;
 	int loop_ctrl=0, function_ctrl=0;
 	char control='y';
+	ofstream fout;
+	fout.open("calculator.txt",ios::app);
+
 	//provides user the choice between switching to normal calculator or the scientific version//
 	while (control == 'y' || control == 'Y') {
 		cout<< "\t\t..MENU..\n\t1.<STANDARD CALCULATOR>\n\t2.<ALL FUNCTIONS>" << endl;
@@ -508,7 +663,7 @@ int main()
 				cout<< "(1) Addition \n";
 				cout<< "(2) Multiplication\n";
 				cout<< "(3) Subtraction \n";
-				cout<< "(4) Division\n"<<"\tOption : \n";
+				cout<< "(4) Division\n"<<"\tOption : ";
 				//avoid infinite loop when a character is entered and corrupts the int cin//
 				if (!(cin>> function_ctrl))
 				{
@@ -526,6 +681,7 @@ int main()
 			}
 			while (loop_ctrl == 2)
 			{
+
 				cout<< "Enter desired operation using key provided in brackets '()'\n scientific options key is (s.number) :\n";
 				cout<< "(1)  Addition \n";
 				cout<< "(2)  Multiplication\n";
@@ -572,77 +728,99 @@ int main()
 		{
 		case 1:
 		{
-         Arithmetic a[5], sum;
+        Arithmetic a[5], sum,ans;
         int n;
+        fout<<"sum : ";
         cout<<"\n Enter how many number want to add ? :";
         cin>>n;
-    for (int i = 0; i < n; i++)
-    {
+        for (int i = 0; i < n; i++)
+        {
         cin>>a[i];
-        sum = a[i] + sum;
-    }
-    cout<<sum;
-    cout<<" is the sum of "<<n<<" numbers. "<<endl;
-			cout<< "-----exiting------\n"<<"Do You wish to store your answer? (y/";break;
+         sum = a[i] + sum;
+        }
+
+        fout<<sum;
+        cout<<sum;
+        cout<<" is the sum of "<<n<<" numbers. "<<endl;
+        fout<<endl;
+			cout<< "-----exiting------\n";break;
 		}
 		case 2:
 		{
-        Arithmetic t,w,ans;
+        Arithmetic t,w,ans,mul;
+        fout<<"Multiplication : ";
         cin>>t>>w;
         ans=t*w;
+        fout<<ans;
         cout<<ans;
-         cout<<" is multiplication of two numbers.";
+        cout<<" is multiplication of two numbers.";
         cout<<endl;
+        fout<<endl;
 			cout<< "-----exiting------\n";break;
 		}
 		case 3:
 		{
 		Arithmetic t,w,ans;
+		fout<<"Substraction : ";
         cin>>t>>w;
         ans=t-w;
+        fout<<ans;
         cout<<ans;
         cout<<" is Subtraction of two numbers.";
         cout<<endl;
+        fout<<endl;
 			cout<< "-----exiting------\n";break;
 		}
 		case 4:
 		{
         Arithmetic t,w,ans;
+        fout<<"Division : ";
         cin>>t>>w;
         ans=t/w;
+        fout<<ans;
         cout<<ans;
         cout<<" is division of two numbers.";
         cout<<endl;
+        fout<<endl;
 			cout<< "-----exiting------\n";break;
 		}
 		case 5:
 		{
         Mod t,w,ans;
+        fout<<"Remainder : ";
         cin>>t>>w;
         ans=t%w;
+        fout<<ans;
         cout<<ans;
         cout<<" is reminder of two numbers.";
         cout<<endl;
+        fout<<endl;
 			cout<< "-----exiting------\n";break;
 		}
 		case 6:
 		{
         Arithmetic t,w,ans;
+        fout<<"Square : ";
         cin>>t;
         ans=t*t;
+        fout<<ans;
         cout<<ans;
         cout<<" is the square";
         cout<<endl;
+        fout<<endl;
 			cout<< "-----exiting------\n";break;
 		}
 		case 7:
 		{
         Arithmetic t,w,ans;
+        fout<<"Cube: ";
         cin>>t;
         ans=t*t*t;
+        fout<<ans;
         cout<<ans;
         cout<<" is the cube";
         cout<<endl;
+        fout<<endl;
 			cout<< "-----exiting------\n";break;
 		}
 		case 8:
@@ -720,32 +898,32 @@ int main()
 		case 17:
 		{
 			mea.expQ();
-			cout<< "-----exiting------*\n";break;
+			cout<< "\n-----exiting------*\n";break;
 		}
 		case 18:
 		{
 			mea.logQ();
-			cout<< "-----exiting------\n";break;
+			cout<< "\n-----exiting------\n";break;
 		}
 		case 19:
 		{
 			mea.log10Q();
-			cout<< "-----exiting------\n";break;
+			cout<< "\n-----exiting------\n";break;
 		}
 		case 20:
 		{
 			tri.atan2Q();
-			cout<< "-----exiting------\n";break;
+			cout<< "\n-----exiting------\n";break;
 		}
 		case 21:
 		{
 			mea.powQ();
-			cout<< "-----exiting------\n";break;
+			cout<< "\n-----exiting------\n";break;
 		}
 		case 22:
 		{
 			mea.fToC();
-			cout<< "-----exiting------\n";break;
+			cout<< "\n-----exiting------\n";break;
 		}
 		case 23:
 		{

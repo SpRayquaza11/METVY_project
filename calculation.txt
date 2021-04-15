@@ -1,0 +1,2 @@
+The Calculated Simple Interest is = 56.7
+The Total Amount after including Interest value = 191.7
