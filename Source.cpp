@@ -251,6 +251,7 @@ public:
 void mat_product();
 void mat_transpose();
 void mat_add();
+void mat_sub();
 };
 
 void Measurement :: expQ()
@@ -512,7 +513,7 @@ void Matrix_Calculation :: mat_product()
     fout<<"Product of matrices : ";
     fout<<endl;
     cout << "Product of matrices\n";
-    for (i = 0; i < r1; i++)
+    for(i = 0; i < r1; i++)
     {
         for (j = 0; j < c2; j++)
             {
@@ -596,6 +597,48 @@ void Matrix_Calculation :: mat_add()
     }
 	fout<<"\n";	
 }
+
+void Matrix_Calculation :: mat_sub()
+{
+	ofstream fout;
+    fout.open("calculator.txt",ios::app);
+    int m, n, p, q, i, j, A[5][5], B[5][5], C[5][5];
+    cout << "\nEnter rows and column of matrix A : ";
+    cin >> m >> n;
+    cout << "Enter rows and column of matrix B : ";
+    cin >> p >> q;
+    if ((m != p) && (n != q))
+    {
+        cout << "Matrices cannot be subtracted!";
+        exit(0);
+    }
+    cout << "Enter elements of matrix A (row-wise) : ";
+    for (i = 0; i < m; i++)
+        for (j = 0; j < n; j++)
+            cin >> A[i][j];
+	cout << "Enter elements of matrix B (row-wise) : ";
+    for (i = 0; i < p; i++)
+        for (j = 0; j < q; j++)
+            cin >> B[i][j];
+    for (i = 0; i < m; i++)
+        for (j = 0; j < n; j++)
+            C[i][j] = A[i][j] - B[i][j];
+	fout<<"Difference of the matrices : ";
+    fout<<endl;	
+	
+    cout << "Difference of the matrices\n";
+    for (i = 0; i < m; i++)
+    {    for (j = 0; j < n; j++)
+		{
+            	cout << C[i][j] << "  ";
+				fout <<C[i][j] << "  ";
+		}
+        cout << "\n";
+		fout<<"\n";
+    }
+	fout<<"\n";	
+}
+
 void Measurement ::compoundInterest()
 {
 	ofstream fout;
@@ -710,8 +753,9 @@ int main()
 				cout<< "(25) Matrix multiplication\n";
 				cout<< "(26) Matrix transpose\n";
 				cout<< "(27) Matrix addition\n";
-				cout<< "(28) Compound Interest\n";
-				cout<< "(29) Simple Interest\n";
+				cout<< "(28) Matrix subtraction\n";
+				cout<< "(29) Compound Interest\n";
+				cout<< "(30) Simple Interest\n";
 				cout<<"\n\tOption : ";
 				//avoid infinite loop when a character is entered and corrupts the int cin//
 				if (!(cin>> function_ctrl))
@@ -952,10 +996,15 @@ int main()
 		}
 			case 28:
 		{
-			mea.compoundInterest();
+			mat.mat_sub();
 			cout<< "\n-----exiting------\n";break;
 		}
 			case 29:
+		{
+			mea.compoundInterest();
+			cout<< "\n-----exiting------\n";break;
+		}
+			case 30:
 		{
 			mea.simpleInterest();
 			cout<< "\n-----exiting------\n";break;
