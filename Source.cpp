@@ -512,6 +512,7 @@ void Matrix_Calculation :: mat_product()
     fout<<"Product of matrices : ";
     fout<<endl;
     cout << "Product of matrices\n";
+	cout<<"Success";
     for (i = 0; i < r1; i++)
     {
         for (j = 0; j < c2; j++)
